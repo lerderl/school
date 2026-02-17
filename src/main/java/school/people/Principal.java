@@ -1,5 +1,7 @@
 package school.people;
 
+import school.davina.Department;
+
 public class Principal extends Staff {
   int minimumAdmissionAge;
 
@@ -28,5 +30,11 @@ public class Principal extends Staff {
     }
     System.out.println("Principal " + getName() + " rejected applicant " + applicant.getName() + " due to age less than 12.");
     return null;
+  }
+
+//  Expel student from department
+  public void expel(Student student, Department department) {
+    department.removeStudent(student);
+    System.out.println("Principal " + getName() + " expelled " + student.getName());
   }
 }

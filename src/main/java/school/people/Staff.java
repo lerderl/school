@@ -1,6 +1,6 @@
 package school.people;
 
-public class Staff extends Person {
+public abstract class Staff extends Person {
   double salary;
 
   public Staff(int id, String name, int age, double salary) {

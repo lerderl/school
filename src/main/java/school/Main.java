@@ -42,12 +42,14 @@ public class Main {
     System.out.println("5. Expel Student");
     System.out.println("6. Exit");
     System.out.print("Select an option: ");
+    System.out.println();
+    System.out.println();
   }
 
 //  Method to admit students
   public static void admitStudentApplicant(Department department, SchoolClass defaultClass, Scanner scanner) {
-    System.out.print("Enter applicant ID: ");
-    String id = scanner.nextLine().trim();
+    int id = (int) ((Math.random() * 9000) + 1000);
+    System.out.println("Student ID: " + id);
 
     System.out.print("Enter applicant name: ");
     String name = scanner.nextLine().trim();
@@ -70,7 +72,7 @@ public class Main {
       department.addStudent(student);
 //      Add to default class for simplicity
       defaultClass.addStudent(student);
-      System.out.println("Student admitted and added to class " + defaultClass.getName());
+      System.out.println(student.getName() + " admitted and added to class " + defaultClass.getName());
     } else {
       System.out.println("Admission failed.");
     }

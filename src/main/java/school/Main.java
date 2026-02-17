@@ -42,6 +42,9 @@ public class Main {
         case "3":
           enrollStudentInCourse(department, scanner);
           break;
+        case "4":
+          listCourses(department);
+          break;
         case "5":
           expelStudent(department, scanner);
           break;
@@ -193,5 +196,16 @@ public class Main {
     }
 
     student.enroll(course);
+  }
+
+//  Method to list all courses
+  public static void listCourses(Department department) {
+    if (department.getCourses().isEmpty()) {
+      System.out.println("No courses in the department");
+      return;
+    }
+
+    System.out.println("Courses in " + department.getName() + ":");
+    department.getCourses().forEach(System.out::println);
   }
 }

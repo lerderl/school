@@ -17,7 +17,7 @@ public class Main {
     Department department = new Department("Science", principal);
 
     Teacher teacher = new Teacher(1, "Sonia Atuchukwu", 30, 150000);
-    System.out.println(teacher);
+    System.out.println(teacher.getName());
 
     SchoolClass sss1 = new SchoolClass("SS1A", teacher);
     department.addClass(sss1);
@@ -53,7 +53,7 @@ public class Main {
           addCourse(department, scanner);
           break;
         case "7":
-          assignTeacherToCourse(department, scanner);
+          assignTeacherToCourse(department, scanner, defaultClass);
           break;
         case "8":
           running = false;
@@ -249,7 +249,7 @@ public class Main {
   }
 
 //  Method to assign course teacher
-  public static void assignTeacherToCourse(Department department, Scanner scanner) {
+  public static void assignTeacherToCourse(Department department, Scanner scanner, SchoolClass defaultClass) {
     if (department.getTeachers().isEmpty()) {
       System.out.println("No teachers available.");
       addTeacher(department, scanner);
@@ -277,5 +277,6 @@ public class Main {
     }
 
     teacher.addCourse(course);
+    teacher.teach(course, defaultClass);
   }
 }

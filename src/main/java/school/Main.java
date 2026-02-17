@@ -27,9 +27,28 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     boolean running = true;
 
-    menu();
-//    String choice = scanner.nextLine().trim();
-    admitStudentApplicant(department, defaultClass, scanner);
+    while (running) {
+      menu();
+//      int choice = scanner.nextInt();
+      String choice = scanner.nextLine().trim();
+
+      switch (choice) {
+        case "1":
+          admitStudentApplicant(department, defaultClass, scanner);
+          break;
+        case "2":
+          listStudents(department);
+          break;
+        case "6":
+          running = false;
+          System.out.println("Exiting the application....");
+          break;
+        default:
+          System.out.println("Invalid choice. Please choose a valid option.");
+      }
+      System.out.println();
+    }
+    scanner.close();
   }
 
 //  Method to display the console menu
@@ -42,8 +61,6 @@ public class Main {
     System.out.println("5. Expel Student");
     System.out.println("6. Exit");
     System.out.print("Select an option: ");
-    System.out.println();
-    System.out.println();
   }
 
 //  Method to admit students
@@ -76,5 +93,16 @@ public class Main {
     } else {
       System.out.println("Admission failed.");
     }
+  }
+
+//  Method to list students in the department
+  public static void listStudents(Department department) {
+    if (department.getStudents().isEmpty()) {
+      System.out.println("No students in the department.");
+      return;
+    }
+    System.out.println("Students in " + department.getName() + ":");
+    department.getStudents().forEach(student -> System.out.println("ID: " + student.getId() +
+        ", Name: " + student.getName() + ", Age: " + student.getAge() + " years old"));
   }
 }

@@ -39,6 +39,9 @@ public class Main {
         case "2":
           listStudents(department);
           break;
+        case "3":
+          enrollStudentInCourse(department, scanner);
+          break;
         case "5":
           expelStudent(department, scanner);
           break;
@@ -159,5 +162,36 @@ public class Main {
     Course course = new Course(code, title, units);
     department.addCourse(course);
     System.out.println("Course added: " + course);
+  }
+
+//  Method to enroll student in a course
+  public static void enrollStudentInCourse(Department department, Scanner scanner) {
+    if (department.getStudents().isEmpty()) {
+      System.out.println("No Students available. Admit a student first.");
+      return;
+    }
+
+    if (department.getCourses().isEmpty()) {
+      System.out.println("No course available. Add a course.");
+      return;
+    }
+
+    System.out.print("Enter student name: ");
+    String studentName = scanner.nextLine().trim();
+    Student student = department.findStudentByName(studentName);
+    if (student == null) {
+      System.out.println("Student not found.");
+      return;
+    }
+
+    System.out.print("Enter course code: ");
+    String courseCode = scanner.nextLine().trim();
+    Course course = department.findCourseByCode(courseCode);
+    if (course == null) {
+      System.out.println("Course not found.");
+      return;
+    }
+
+    student.enroll(course);
   }
 }

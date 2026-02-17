@@ -110,4 +110,30 @@ public class Department {
       courses.add(course);
     }
   }
+
+  public void removeStudent(Student student) {
+    students.remove(student);
+  }
+
+//  Helper methods
+  public Student findStudentByName(String name) {
+    return students.stream()
+      .filter(s -> s.getName().equalsIgnoreCase(name))
+      .findFirst()
+      .orElse(null);
+  }
+
+  public Course findCourseByCode(String code) {
+    return courses.stream()
+      .filter(c -> c.getCode().equalsIgnoreCase(code))
+      .findFirst()
+      .orElse(null);
+  }
+
+  public Teacher findTeacherByName(String name) {
+    return teachers.stream()
+        .filter(t -> t.getName().equalsIgnoreCase(name))
+        .findFirst()
+        .orElse(null);
+  }
 }

@@ -29,7 +29,6 @@ public class Main {
 
     while (running) {
       menu();
-//      int choice = scanner.nextInt();
       String choice = scanner.nextLine().trim();
 
       switch (choice) {
@@ -38,6 +37,9 @@ public class Main {
           break;
         case "2":
           listStudents(department);
+          break;
+        case "5":
+          expelStudent(department, scanner);
           break;
         case "6":
           running = false;
@@ -104,5 +106,23 @@ public class Main {
     System.out.println("Students in " + department.getName() + ":");
     department.getStudents().forEach(student -> System.out.println("ID: " + student.getId() +
         ", Name: " + student.getName() + ", Age: " + student.getAge() + " years old"));
+  }
+
+//  Method to expel a student
+  public static void expelStudent(Department department, Scanner scanner) {
+    if (department.getStudents().isEmpty()) {
+      System.out.println("No students to expel");
+      return;
+    }
+
+    System.out.print("Enter student name to expel: ");
+    String studentName = scanner.nextLine().trim();
+    Student student = department.findStudentByName(studentName);
+    if (student == null) {
+      System.out.println("Student not found");
+      return;
+    }
+
+    department.getPrincipal().expel(student, department);
   }
 }

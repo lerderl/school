@@ -30,6 +30,9 @@ public class Teacher extends Staff implements Teachable {
   public void addCourse(Course course) {
     if (!courses.contains(course)) {
       courses.add(course);
+      System.out.println("Course " + course.getTitle() + " assigned to teacher " + getName());
+    } else {
+      System.out.println(getName() + " is already assigned to " + course.getTitle());
     }
   }
 }

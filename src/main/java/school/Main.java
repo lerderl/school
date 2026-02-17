@@ -1,5 +1,6 @@
 package school;
 
+import school.academics.Course;
 import school.people.Student;
 import school.people.Teacher;
 import school.people.Principal;
@@ -42,6 +43,9 @@ public class Main {
           expelStudent(department, scanner);
           break;
         case "6":
+          addCourse(department, scanner);
+          break;
+        case "8":
           running = false;
           System.out.println("Exiting the application....");
           break;
@@ -61,7 +65,9 @@ public class Main {
     System.out.println("3. Enroll Student in Course");
     System.out.println("4. List Courses");
     System.out.println("5. Expel Student");
-    System.out.println("6. Exit");
+    System.out.println("6. Add Course");
+    System.out.println("7. Assign Teacher to Course");
+    System.out.println("8. Exit");
     System.out.print("Select an option: ");
   }
 
@@ -124,5 +130,34 @@ public class Main {
     }
 
     department.getPrincipal().expel(student, department);
+  }
+
+//  Method to add a course
+  public static void addCourse(Department department, Scanner scanner) {
+    System.out.print("Enter course code: ");
+    String code = scanner.nextLine().trim();
+
+    if (department.findCourseByCode(code) != null) {
+      System.out.println("A course with this code already exists");
+      return;
+    }
+
+    System.out.print("Enter course title: ");
+    String title = scanner.nextLine().trim();
+
+    System.out.print("Enter course units: ");
+    String unitsInput = scanner.nextLine().trim();
+    int units;
+
+    try {
+      units = Integer.parseInt(unitsInput);
+    } catch (NumberFormatException e) {
+      System.out.println("Invalid units. Operation cancelled.");
+      return;
+    }
+
+    Course course = new Course(code, title, units);
+    department.addCourse(course);
+    System.out.println("Course added: " + course);
   }
 }

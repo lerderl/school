@@ -1,4 +1,7 @@
 package school.interfaces;
 
-public class Enrollable {
+import school.academics.Course;
+
+public interface Enrollable {
+  void enroll(Course course);
 }

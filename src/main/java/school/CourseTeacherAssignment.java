@@ -1,0 +1,77 @@
+package school;
+
+import school.people.Teacher;
+import school.academics.Course;
+import school.davina.Department;
+import school.academics.SchoolClass;
+
+import java.util.Scanner;
+
+public class CourseTeacherAssignment {
+  //  Method to add a teacher
+  public static void addTeacher(Department department, Scanner scanner) {
+    int id = (int) ((Math.random() * 9000) + 1000);
+    System.out.println("Teacher ID: " + id);
+
+    System.out.print("Enter Teacher name: ");
+    String teacherName = scanner.nextLine().trim();
+
+    System.out.print("Enter Teacher Age: ");
+    String teacherAge = scanner.nextLine().trim();
+    int age;
+
+    try {
+      age = Integer.parseInt(teacherAge);
+    } catch (NumberFormatException e) {
+      System.out.println("Invalid age. Operation cancelled.");
+      return;
+    }
+
+    System.out.print("Enter Teacher Salary: ");
+    String teacherSalary = scanner.nextLine().trim();
+    double salary;
+
+    try {
+      salary = Double.parseDouble(teacherSalary);
+    } catch (NumberFormatException e) {
+      System.out.println("Invalid salary. Operation cancelled.");
+      return;
+    }
+
+    Teacher teacher = new Teacher(id, teacherName, age, salary);
+    department.addTeacher(teacher);
+    System.out.println("Teacher " + teacher.getName() + " added.");
+  }
+
+  //  Method to assign course teacher
+  public static void assignTeacherToCourse(Department department, Scanner scanner, SchoolClass defaultClass) {
+    if (department.getTeachers().isEmpty()) {
+      System.out.println("No teachers available.");
+      addTeacher(department, scanner);
+    }
+
+    if (department.getCourses().isEmpty()) {
+      System.out.println("No course available.");
+      return;
+    }
+
+    System.out.print("Enter name of teacher: ");
+    String teacherName = scanner.nextLine().trim();
+    Teacher teacher = department.findTeacherByName(teacherName);
+    if (teacher == null) {
+      System.out.println("Teacher not found.");
+      return;
+    }
+
+    System.out.print("Enter course code: ");
+    String courseCode = scanner.nextLine().trim();
+    Course course = department.findCourseByCode(courseCode);
+    if (course == null) {
+      System.out.println("Course not found.");
+      return;
+    }
+
+    teacher.addCourse(course);
+    teacher.teach(course, defaultClass);
+  }
+}

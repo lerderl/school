@@ -44,7 +44,8 @@ public class CourseTeacherAssignmentService {
   }
 
   //  Method to assign course teacher
-  public static void assignTeacherToCourse(Department department, Scanner scanner, SchoolClass defaultClass, Teacher teacher) {
+  public static void assignTeacherToCourse(Department department, Scanner scanner, SchoolClass defaultClass) {
+    Teacher teacher = defaultClass.getClassTeacher();
     department.addTeacher(teacher);
     
     if (department.getTeachers().isEmpty()) {

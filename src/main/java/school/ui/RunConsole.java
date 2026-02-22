@@ -14,7 +14,7 @@ import school.service.student.StudentsListService;
 import java.util.Scanner;
 
 public class RunConsole {
-  public static void runConsole(Department department, SchoolClass defaultClass, Teacher teacher) {
+  public static void runConsole(Department department, SchoolClass defaultClass) {
     Scanner scanner = new Scanner(System.in);
     boolean running = true;
 
@@ -50,7 +50,7 @@ public class RunConsole {
           break;
         case "7":
 //          Method to assign course teacher
-          CourseTeacherAssignmentService.assignTeacherToCourse(department, scanner, defaultClass, teacher);
+          CourseTeacherAssignmentService.assignTeacherToCourse(department, scanner, defaultClass);
           break;
         case "8":
           running = false;

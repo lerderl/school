@@ -1,5 +1,10 @@
 package school.domain.academics;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Course {
   String code;
   String title;
@@ -11,31 +16,7 @@ public class Course {
     this.units = units;
   }
 
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public int getUnits() {
-    return units;
-  }
-
-  public void setUnits(int units) {
-    this.units = units;
-  }
-
-//  @Override
+  //  @Override
   public String toString() {
     return code + " - " + title + " (" + units + " units)";
   }

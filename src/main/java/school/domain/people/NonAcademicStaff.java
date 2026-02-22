@@ -1,5 +1,10 @@
 package school.domain.people;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class NonAcademicStaff extends Staff {
   String role;
 
@@ -8,11 +13,4 @@ public class NonAcademicStaff extends Staff {
     this.role = role;
   }
 
-  public String getRole() {
-    return role;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
-  }
 }

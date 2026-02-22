@@ -1,5 +1,7 @@
 package school.domain.davina;
 
+import lombok.Getter;
+import lombok.Setter;
 import school.domain.people.Student;
 import school.domain.people.Teacher;
 import school.domain.academics.Course;
@@ -10,6 +12,8 @@ import school.domain.people.NonAcademicStaff;
 import java.util.List;
 import java.util.ArrayList;
 
+@Setter
+@Getter
 public class Department {
   String name;
   Principal principal;
@@ -23,62 +27,6 @@ public class Department {
   public Department(String name, Principal principal) {
     this.name = name;
     this.principal = principal;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public List<Teacher> getTeachers() {
-    return teachers;
-  }
-
-  public void setTeachers(List<Teacher> teachers) {
-    this.teachers = teachers;
-  }
-
-  public Principal getPrincipal() {
-    return principal;
-  }
-
-  public void setPrincipal(Principal principal) {
-    this.principal = principal;
-  }
-
-  public List<NonAcademicStaff> getNonAcademicStaffs() {
-    return nonAcademicStaffs;
-  }
-
-  public void setNonAcademicStaffs(List<NonAcademicStaff> nonAcademicStaffs) {
-    this.nonAcademicStaffs = nonAcademicStaffs;
-  }
-
-  public List<Student> getStudents() {
-    return students;
-  }
-
-  public void setStudents(List<Student> students) {
-    this.students = students;
-  }
-
-  public List<SchoolClass> getClasses() {
-    return classes;
-  }
-
-  public void setClasses(List<SchoolClass> classes) {
-    this.classes = classes;
-  }
-
-  public List<Course> getCourses() {
-    return courses;
-  }
-
-  public void setCourses(List<Course> courses) {
-    this.courses = courses;
   }
 
   public void addTeacher(Teacher teacher) {

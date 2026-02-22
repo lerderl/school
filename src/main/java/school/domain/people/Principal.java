@@ -1,7 +1,11 @@
 package school.domain.people;
 
+import lombok.Getter;
+import lombok.Setter;
 import school.domain.davina.Department;
 
+@Setter
+@Getter
 public class Principal extends Staff {
   int minimumAdmissionAge;
 
@@ -10,15 +14,7 @@ public class Principal extends Staff {
     this.minimumAdmissionAge = minimumAdmissionAge;
   }
 
-  public int getMinimumAdmissionAge() {
-    return minimumAdmissionAge;
-  }
-
-  public void setMinimumAdmissionAge(int minimumAdmissionAge) {
-    this.minimumAdmissionAge = minimumAdmissionAge;
-  }
-
-//  Admit student applicant based on age
+  //  Admit student applicant based on age
   public Student admit (StudentApplicant applicant) {
     if (applicant.getAge() >= minimumAdmissionAge) {
       System.out.println("Principal " + getName() + " admitted applicant " + applicant.getName());

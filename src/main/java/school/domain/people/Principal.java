@@ -1,6 +1,6 @@
-package school.people;
+package school.domain.people;
 
-import school.davina.Department;
+import school.domain.davina.Department;
 
 public class Principal extends Staff {
   int minimumAdmissionAge;

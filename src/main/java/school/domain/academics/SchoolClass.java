@@ -1,7 +1,7 @@
-package school.academics;
+package school.domain.academics;
 
-import school.people.Student;
-import school.people.Teacher;
+import school.domain.people.Student;
+import school.domain.people.Teacher;
 
 import java.util.List;
 import java.util.ArrayList;

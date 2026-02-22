@@ -1,8 +1,9 @@
-package school;
+package school.app;
 
-import school.people.*;
-import school.davina.Department;
-import school.academics.SchoolClass;
+import school.domain.people.*;
+import school.domain.davina.Department;
+import school.domain.academics.SchoolClass;
+import school.ui.RunConsole;
 
 public class Main {
   public static void main(String[] args) {

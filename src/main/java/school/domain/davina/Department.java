@@ -1,11 +1,11 @@
-package school.davina;
+package school.domain.davina;
 
-import school.people.Student;
-import school.people.Teacher;
-import school.academics.Course;
-import school.people.Principal;
-import school.academics.SchoolClass;
-import school.people.NonAcademicStaff;
+import school.domain.people.Student;
+import school.domain.people.Teacher;
+import school.domain.academics.Course;
+import school.domain.people.Principal;
+import school.domain.academics.SchoolClass;
+import school.domain.people.NonAcademicStaff;
 
 import java.util.List;
 import java.util.ArrayList;

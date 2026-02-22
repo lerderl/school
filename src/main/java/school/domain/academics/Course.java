@@ -1,4 +1,4 @@
-package school.academics;
+package school.domain.academics;
 
 public class Course {
   String code;

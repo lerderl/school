@@ -1,4 +1,4 @@
-package school.people;
+package school.domain.people;
 
 public abstract class Staff extends Person {
   double salary;

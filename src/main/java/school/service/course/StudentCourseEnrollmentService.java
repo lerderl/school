@@ -1,12 +1,12 @@
-package school;
+package school.service.course;
 
-import school.people.Student;
-import school.academics.Course;
-import school.davina.Department;
+import school.domain.people.Student;
+import school.domain.academics.Course;
+import school.domain.davina.Department;
 
 import java.util.Scanner;
 
-public class StudentCourseEnrollment {
+public class StudentCourseEnrollmentService {
   public static void enrollStudentInCourse(Department department, Scanner scanner) {
     if (department.getStudents().isEmpty()) {
       System.out.println("No Students available. Admit a student first.");

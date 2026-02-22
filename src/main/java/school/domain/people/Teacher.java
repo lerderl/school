@@ -1,8 +1,8 @@
-package school.people;
+package school.domain.people;
 
-import school.academics.Course;
-import school.interfaces.Teachable;
-import school.academics.SchoolClass;
+import school.domain.academics.Course;
+import school.domain.interfaces.Teachable;
+import school.domain.academics.SchoolClass;
 
 import java.util.List;
 import java.util.ArrayList;

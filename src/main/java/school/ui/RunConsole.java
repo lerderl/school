@@ -2,13 +2,13 @@ package school.ui;
 
 import school.domain.davina.Department;
 import school.domain.academics.SchoolClass;
-import school.service.admission.AdmitApplicantService;
-import school.service.admission.ExpelStudentService;
-import school.service.course.AddCourseService;
-import school.service.course.CourseTeacherAssignmentService;
-import school.service.course.CoursesListService;
-import school.service.course.StudentCourseEnrollmentService;
-import school.service.student.StudentsListService;
+import school.service.course.impl.AddCourseServiceImpl;
+import school.service.course.impl.CoursesListServiceImpl;
+import school.service.student.impl.StudentsListServiceImpl;
+import school.service.admission.impl.ExpelStudentServiceImpl;
+import school.service.admission.impl.AdmitApplicantServiceImpl;
+import school.service.course.impl.CourseTeacherAssignmentServiceImpl;
+import school.service.course.impl.StudentCourseEnrollmentServiceImpl;
 
 import java.util.Scanner;
 
@@ -24,32 +24,39 @@ public class RunConsole {
 
       switch (choice) {
         case "1":
-//          Method to admit students
-          AdmitApplicantService.admitStudentApplicant(department, defaultClass, scanner);
+//          Student admission
+          AdmitApplicantServiceImpl admitApplicantService = new AdmitApplicantServiceImpl();
+          admitApplicantService.admitStudentApplicant(department, defaultClass, scanner);
           break;
         case "2":
-//          Method to list students in the department
-          StudentsListService.listStudents(department);
+//          Department students list
+          StudentsListServiceImpl studentsListService = new StudentsListServiceImpl();
+          studentsListService.listStudents(department);
           break;
         case "3":
-//          Method to enroll student in a course
-          StudentCourseEnrollmentService.enrollStudentInCourse(department, scanner);
+//          Enroll student in a course
+          StudentCourseEnrollmentServiceImpl studentCourseEnrollmentService = new StudentCourseEnrollmentServiceImpl();
+          studentCourseEnrollmentService.enrollStudentInCourse(department, scanner);
           break;
         case "4":
-//          Method to list all courses
-          CoursesListService.listCourses(department);
+//          List all courses
+          CoursesListServiceImpl coursesListService = new CoursesListServiceImpl();
+          coursesListService.listCourses(department);
           break;
         case "5":
-//          Method to expel a student
-          ExpelStudentService.expelStudent(department, scanner);
+//          Student expulsion
+          ExpelStudentServiceImpl expelStudentService = new ExpelStudentServiceImpl();
+          expelStudentService.expelStudent(department, scanner);
           break;
         case "6":
-//          Method to add a course
-          AddCourseService.addCourse(department, scanner);
+//          Add a course
+          AddCourseServiceImpl addCourseService = new AddCourseServiceImpl();
+          addCourseService.addCourse(department, scanner);
           break;
         case "7":
-//          Method to assign course teacher
-          CourseTeacherAssignmentService.assignTeacherToCourse(department, scanner, defaultClass);
+//          Assign course teacher
+          CourseTeacherAssignmentServiceImpl courseTeacherAssignmentService = new CourseTeacherAssignmentServiceImpl();
+          courseTeacherAssignmentService.assignTeacherToCourse(department, scanner, defaultClass);
           break;
         case "8":
           running = false;

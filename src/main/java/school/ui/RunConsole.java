@@ -1,6 +1,5 @@
 package school.ui;
 
-import school.domain.people.Teacher;
 import school.domain.davina.Department;
 import school.domain.academics.SchoolClass;
 import school.service.admission.AdmitApplicantService;

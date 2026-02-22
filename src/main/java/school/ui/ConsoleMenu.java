@@ -1,4 +1,4 @@
-package school;
+package school.ui;
 
 public class ConsoleMenu {
   public static void menu() {

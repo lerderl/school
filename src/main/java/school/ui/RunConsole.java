@@ -1,13 +1,19 @@
-package school;
+package school.ui;
 
-import school.people.Teacher;
-import school.davina.Department;
-import school.academics.SchoolClass;
+import school.domain.davina.Department;
+import school.domain.academics.SchoolClass;
+import school.service.admission.AdmitApplicantService;
+import school.service.admission.ExpelStudentService;
+import school.service.course.AddCourseService;
+import school.service.course.CourseTeacherAssignmentService;
+import school.service.course.CoursesListService;
+import school.service.course.StudentCourseEnrollmentService;
+import school.service.student.StudentsListService;
 
 import java.util.Scanner;
 
 public class RunConsole {
-  public static void runConsole(Department department, SchoolClass defaultClass, Teacher teacher) {
+  public static void runConsole(Department department, SchoolClass defaultClass) {
     Scanner scanner = new Scanner(System.in);
     boolean running = true;
 
@@ -19,31 +25,31 @@ public class RunConsole {
       switch (choice) {
         case "1":
 //          Method to admit students
-          AdmitApplicant.admitStudentApplicant(department, defaultClass, scanner);
+          AdmitApplicantService.admitStudentApplicant(department, defaultClass, scanner);
           break;
         case "2":
 //          Method to list students in the department
-          StudentsList.listStudents(department);
+          StudentsListService.listStudents(department);
           break;
         case "3":
 //          Method to enroll student in a course
-          StudentCourseEnrollment.enrollStudentInCourse(department, scanner);
+          StudentCourseEnrollmentService.enrollStudentInCourse(department, scanner);
           break;
         case "4":
 //          Method to list all courses
-          CoursesList.listCourses(department);
+          CoursesListService.listCourses(department);
           break;
         case "5":
 //          Method to expel a student
-          ExpelStudent.expelStudent(department, scanner);
+          ExpelStudentService.expelStudent(department, scanner);
           break;
         case "6":
 //          Method to add a course
-          AddCourse.addCourse(department, scanner);
+          AddCourseService.addCourse(department, scanner);
           break;
         case "7":
 //          Method to assign course teacher
-          CourseTeacherAssignment.assignTeacherToCourse(department, scanner, defaultClass, teacher);
+          CourseTeacherAssignmentService.assignTeacherToCourse(department, scanner, defaultClass);
           break;
         case "8":
           running = false;

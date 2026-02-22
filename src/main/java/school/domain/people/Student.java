@@ -1,24 +1,20 @@
-package school.people;
+package school.domain.people;
 
-import school.academics.Course;
-import school.interfaces.Enrollable;
+import lombok.Getter;
+import lombok.Setter;
+import school.domain.academics.Course;
+import school.domain.interfaces.Enrollable;
 
 import java.util.List;
 import java.util.ArrayList;
 
+@Setter
+@Getter
 public class Student extends Person implements Enrollable {
   List<Course> enrolledCourses = new ArrayList<>();
 
   public Student(int id, String name, int age) {
     super(id, name, age);
-  }
-
-  public List<Course> getEnrolledCourses() {
-    return enrolledCourses;
-  }
-
-  public void setEnrolledCourses(List<Course> enrolledCourses) {
-    this.enrolledCourses = enrolledCourses;
   }
 
   @Override

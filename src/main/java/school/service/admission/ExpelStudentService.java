@@ -1,11 +1,11 @@
-package school;
+package school.service.admission;
 
-import school.people.Student;
-import school.davina.Department;
+import school.domain.people.Student;
+import school.domain.davina.Department;
 
 import java.util.Scanner;
 
-public class ExpelStudent {
+public class ExpelStudentService {
   public static void expelStudent(Department department, Scanner scanner) {
     if (department.getStudents().isEmpty()) {
       System.out.println("No students to expel");

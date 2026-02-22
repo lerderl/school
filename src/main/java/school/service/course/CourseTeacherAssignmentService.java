@@ -1,13 +1,13 @@
-package school;
+package school.service.course;
 
-import school.people.Teacher;
-import school.academics.Course;
-import school.davina.Department;
-import school.academics.SchoolClass;
+import school.domain.people.Teacher;
+import school.domain.academics.Course;
+import school.domain.davina.Department;
+import school.domain.academics.SchoolClass;
 
 import java.util.Scanner;
 
-public class CourseTeacherAssignment {
+public class CourseTeacherAssignmentService {
   //  Method to add a teacher
   public static void addTeacher(Department department, Scanner scanner) {
     int id = (int) ((Math.random() * 9000) + 1000);
@@ -44,7 +44,8 @@ public class CourseTeacherAssignment {
   }
 
   //  Method to assign course teacher
-  public static void assignTeacherToCourse(Department department, Scanner scanner, SchoolClass defaultClass, Teacher teacher) {
+  public static void assignTeacherToCourse(Department department, Scanner scanner, SchoolClass defaultClass) {
+    Teacher teacher = defaultClass.getClassTeacher();
     department.addTeacher(teacher);
     
     if (department.getTeachers().isEmpty()) {

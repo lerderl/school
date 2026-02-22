@@ -1,8 +1,8 @@
-package school;
+package school.service.student;
 
-import school.davina.Department;
+import school.domain.davina.Department;
 
-public class StudentsList {
+public class StudentsListService {
   public static void listStudents(Department department) {
     if (department.getStudents().isEmpty()) {
       System.out.println("No students in the department.");

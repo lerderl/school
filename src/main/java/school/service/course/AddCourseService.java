@@ -1,11 +1,11 @@
-package school;
+package school.service.course;
 
-import school.academics.Course;
-import school.davina.Department;
+import school.domain.academics.Course;
+import school.domain.davina.Department;
 
 import java.util.Scanner;
 
-public class AddCourse {
+public class AddCourseService {
   public static void addCourse(Department department, Scanner scanner) {
     System.out.print("Enter course code: ");
     String code = scanner.nextLine().trim();

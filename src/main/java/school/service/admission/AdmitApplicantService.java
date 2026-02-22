@@ -1,13 +1,13 @@
-package school;
+package school.service.admission;
 
-import school.people.Student;
-import school.davina.Department;
-import school.academics.SchoolClass;
-import school.people.StudentApplicant;
+import school.domain.people.Student;
+import school.domain.davina.Department;
+import school.domain.academics.SchoolClass;
+import school.domain.people.StudentApplicant;
 
 import java.util.Scanner;
 
-public class AdmitApplicant {
+public class AdmitApplicantService {
   public static void admitStudentApplicant(Department department, SchoolClass defaultClass, Scanner scanner) {
     int id = (int) ((Math.random() * 9000) + 1000);
     System.out.println("Student ID: " + id);

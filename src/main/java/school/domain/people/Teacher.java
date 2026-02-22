@@ -1,25 +1,21 @@
-package school.people;
+package school.domain.people;
 
-import school.academics.Course;
-import school.interfaces.Teachable;
-import school.academics.SchoolClass;
+import lombok.Getter;
+import lombok.Setter;
+import school.domain.academics.Course;
+import school.domain.interfaces.Teachable;
+import school.domain.academics.SchoolClass;
 
 import java.util.List;
 import java.util.ArrayList;
 
+@Setter
+@Getter
 public class Teacher extends Staff implements Teachable {
   List<Course> courses = new ArrayList<>();
 
   public Teacher(int id, String name, int age, double salary) {
     super(id, name, age, salary);
-  }
-
-  public List<Course> getCourses() {
-    return courses;
-  }
-
-  public void setCourses(List<Course> courses) {
-    this.courses = courses;
   }
 
   @Override

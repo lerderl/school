@@ -11,6 +11,6 @@ public class ConsoleMenu {
     System.out.println("6. Add Course");
     System.out.println("7. Assign Teacher to Course");
     System.out.println("8. Exit");
-    System.out.print("Select an option: ");
+    System.out.print("Select an option (or enter option 8 to exit): ");
   }
 }

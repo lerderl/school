@@ -16,6 +16,6 @@ public class Main {
     department.addClass(sss1);
 
 //    runConsole
-    RunConsole.runConsole(department, sss1);
+    RunConsole.runConsole(department, sss1, teacher);
   }
 }

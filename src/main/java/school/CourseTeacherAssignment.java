@@ -44,7 +44,9 @@ public class CourseTeacherAssignment {
   }
 
   //  Method to assign course teacher
-  public static void assignTeacherToCourse(Department department, Scanner scanner, SchoolClass defaultClass) {
+  public static void assignTeacherToCourse(Department department, Scanner scanner, SchoolClass defaultClass, Teacher teacher) {
+    department.addTeacher(teacher);
+    
     if (department.getTeachers().isEmpty()) {
       System.out.println("No teachers available.");
       addTeacher(department, scanner);
@@ -57,8 +59,8 @@ public class CourseTeacherAssignment {
 
     System.out.print("Enter name of teacher: ");
     String teacherName = scanner.nextLine().trim();
-    Teacher teacher = department.findTeacherByName(teacherName);
-    if (teacher == null) {
+    Teacher searchTeacher = department.findTeacherByName(teacherName);
+    if (searchTeacher == null) {
       System.out.println("Teacher not found.");
       return;
     }
@@ -71,7 +73,7 @@ public class CourseTeacherAssignment {
       return;
     }
 
-    teacher.addCourse(course);
-    teacher.teach(course, defaultClass);
+    searchTeacher.addCourse(course);
+    searchTeacher.teach(course, defaultClass);
   }
 }

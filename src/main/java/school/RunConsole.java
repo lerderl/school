@@ -1,12 +1,13 @@
 package school;
 
+import school.people.Teacher;
 import school.davina.Department;
 import school.academics.SchoolClass;
 
 import java.util.Scanner;
 
 public class RunConsole {
-  public static void runConsole(Department department, SchoolClass defaultClass) {
+  public static void runConsole(Department department, SchoolClass defaultClass, Teacher teacher) {
     Scanner scanner = new Scanner(System.in);
     boolean running = true;
 
@@ -42,7 +43,7 @@ public class RunConsole {
           break;
         case "7":
 //          Method to assign course teacher
-          CourseTeacherAssignment.assignTeacherToCourse(department, scanner, defaultClass);
+          CourseTeacherAssignment.assignTeacherToCourse(department, scanner, defaultClass, teacher);
           break;
         case "8":
           running = false;
